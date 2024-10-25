@@ -1,0 +1,5 @@
+dependencies:
+  espressif/esp-tflite-micro:
+    version: '*'
+  nimble_peripheral_utils:
+    path: C:/Espressif/frameworks/esp-idf-v5.3/examples/bluetooth/nimble/common/nimble_peripheral_utils
