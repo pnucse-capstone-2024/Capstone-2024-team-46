@@ -1,0 +1,79 @@
+[1/5] cmd.exe /C "cd /D C:\Users\kimkj\Desktop\graduate\Anomaly_Detection_Prometheus\build\esp-idf\esptool_py && C:\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.3/components/partition_table/check_sizes.py --offset 0x8000 partition --type app C:/Users/kimkj/Desktop/graduate/Anomaly_Detection_Prometheus/build/partition_table/partition-table.bin C:/Users/kimkj/Desktop/graduate/Anomaly_Detection_Prometheus/build/Anomaly_Detection_Prometheus.bin"
+Anomaly_Detection_Prometheus.bin binary size 0xe39f0 bytes. Smallest app partition is 0x100000 bytes. 0x1c610 bytes (11%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cmd.exe /C "cd /D C:\Users\kimkj\Desktop\graduate\Anomaly_Detection_Prometheus\build\bootloader\esp-idf\esptool_py && C:\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.3/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 C:/Users/kimkj/Desktop/graduate/Anomaly_Detection_Prometheus/build/bootloader/bootloader.bin"
+Bootloader binary size 0x6df0 bytes. 0x210 bytes (2%) free.
+[2/3] cmd.exe /C "cd /D C:\Espressif\frameworks\esp-idf-v5.3\components\esptool_py && C:\Espressif\tools\cmake\3.24.0\bin\cmake.exe -D IDF_PATH=C:/Espressif/frameworks/esp-idf-v5.3 -D SERIAL_TOOL=C:/Espressif/python_env/idf5.3_py3.11_env/Scripts/python.exe;;C:/Espressif/frameworks/esp-idf-v5.3/components/esptool_py/esptool/esptool.py;--chip;esp32 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;wresptool.py --chip esp32 -p COM7 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 4MB 0x1000 bootloader/bootloader.bin 0x10000 Anomaly_Detection_Prometheus.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.8.dev4
+Serial port COM7
+Connecting....
+Chip is ESP32-U4WDH (revision v3.0)
+Features: WiFi, BT, Single Core, Embedded Flash, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: f0:08:d1:e2:cf:8c
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00001000 to 0x00007fff...
+Flash will be erased from 0x00010000 to 0x000f3fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+SHA digest in image updated
+Compressed 28144 bytes to 17181...
+Writing at 0x00001000... (50 %)
+Writing at 0x000079c7... (100 %)
+Wrote 28144 bytes (17181 compressed) at 0x00001000 in 0.9 seconds (effective 250.5 kbit/s)...
+Hash of data verified.
+Compressed 932336 bytes to 650481...
+Writing at 0x00010000... (2 %)
+Writing at 0x0001ca26... (5 %)
+Writing at 0x00022744... (7 %)
+Writing at 0x00026a1e... (10 %)
+Writing at 0x0002b009... (12 %)
+Writing at 0x0002f4cf... (15 %)
+Writing at 0x000338ed... (17 %)
+Writing at 0x00037d85... (20 %)
+Writing at 0x0003e6de... (22 %)
+Writing at 0x00044400... (25 %)
+Writing at 0x0004890f... (27 %)
+Writing at 0x0004d01a... (30 %)
+Writing at 0x000515f2... (32 %)
+Writing at 0x00055b85... (35 %)
+Writing at 0x0005a340... (37 %)
+Writing at 0x00062747... (40 %)
+Writing at 0x00068624... (42 %)
+Writing at 0x0006d9d7... (45 %)
+Writing at 0x00074583... (47 %)
+Writing at 0x00079eda... (50 %)
+Writing at 0x0007f33d... (52 %)
+Writing at 0x000842a0... (55 %)
+Writing at 0x00089425... (57 %)
+Writing at 0x0008ef17... (60 %)
+Writing at 0x000948c6... (62 %)
+Writing at 0x00099e60... (65 %)
+Writing at 0x0009f6cc... (67 %)
+Writing at 0x000a4eb9... (70 %)
+Writing at 0x000aa51f... (72 %)
+Writing at 0x000af72c... (75 %)
+Writing at 0x000b50c2... (77 %)
+Writing at 0x000bab11... (80 %)
+Writing at 0x000c0d9e... (82 %)
+Writing at 0x000c70e5... (85 %)
+Writing at 0x000ce9c8... (87 %)
+Writing at 0x000d725b... (90 %)
+Writing at 0x000def77... (92 %)
+Writing at 0x000e45c1... (95 %)
+Writing at 0x000e9b3a... (97 %)
+Writing at 0x000ef823... (100 %)
+Wrote 932336 bytes (650481 compressed) at 0x00010000 in 15.2 seconds (effective 490.4 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 103...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (effective 351.5 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...
+ite_flash;@flash_args -D WORKING_DIRECTORY=C:/Users/kimkj/Desktop/graduate/Anomaly_Detection_Prometheus/build -P C:/Espressif/frameworks/esp-idf-v5.3/components/esptool_py/run_serial_tool.cmake"
