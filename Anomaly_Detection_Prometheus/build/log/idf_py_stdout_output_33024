@@ -1,0 +1,714 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0030,len:7516
+ho 0 tail 12 room 4
+load:0x40078000,len:16440
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:4092
+entry 0x40080630
+[0;32mI (34) boot: ESP-IDF v5.3-dirty 2nd stage bootloader[0m
+[0;32mI (34) boot: compile time Oct 29 2024 00:02:18[0m
+[0;33mW (34) boot: Unicore bootloader[0m
+[0;32mI (38) boot: chip revision: v3.0[0m
+[0;32mI (42) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (47) boot.esp32: SPI Speed      : 80MHz[0m
+[0;32mI (52) boot.esp32: SPI Mode       : QIO[0m
+[0;32mI (56) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (61) boot: Enabling RNG early entropy source...[0m
+[0;32mI (66) boot: Partition Table:[0m
+[0;32mI (70) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (77) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (85) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (92) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (100) boot: End of partition table[0m
+[0;32mI (104) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=5efe0h (389088) map[0m
+[0;32mI (212) esp_image: segment 1: paddr=0006f008 vaddr=3ffbdb60 size=01010h (  4112) load[0m
+[0;32mI (214) esp_image: segment 2: paddr=00070020 vaddr=400d0020 size=6a0e8h (434408) map[0m
+[0;32mI (329) esp_image: segment 3: paddr=000da110 vaddr=3ffbeb70 size=03360h ( 13152) load[0m
+[0;32mI (333) esp_image: segment 4: paddr=000dd478 vaddr=40080000 size=1654ch ( 91468) load[0m
+[0;32mI (374) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (374) boot: Disabling RNG early entropy source...[0m
+[0;32mI (386) cpu_start: Unicore app[0m
+[0;32mI (386) cpu_start: Single core mode[0m
+[0;32mI (396) cpu_start: Pro cpu start user code[0m
+[0;32mI (396) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (396) app_init: Application information:[0m
+[0;32mI (401) app_init: Project name:     Anomaly_Detection_Prometheus[0m
+[0;32mI (408) app_init: App version:      1[0m
+[0;32mI (412) app_init: Compile time:     Oct 29 2024 00:02:02[0m
+[0;32mI (418) app_init: ELF file SHA256:  f3caa7b4d...[0m
+[0;32mI (424) app_init: ESP-IDF:          v5.3-dirty[0m
+[0;32mI (429) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (433) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (438) efuse_init: Chip rev:         v3.0[0m
+[0;32mI (443) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (450) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (456) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (463) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (469) heap_init: At 3FFD2050 len 0000DFB0 (55 KiB): DRAM[0m
+[0;32mI (475) heap_init: At 3FFE0440 len 0001FBC0 (126 KiB): D/IRAM[0m
+[0;32mI (481) heap_init: At 40078000 len 00008000 (32 KiB): IRAM[0m
+[0;32mI (487) heap_init: At 4009654C len 00009AB4 (38 KiB): IRAM[0m
+[0;32mI (494) heap_init: At 3FF80000 len 00002000 (8 KiB): RTCRAM[0m
+[0;32mI (501) spi_flash: detected chip: generic[0m
+[0;32mI (505) spi_flash: flash io: qio[0m
+[0;33mW (509) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (519) coexist: coex firmware version: dab85ae96[0m
+[0;32mI (525) main_task: Started on CPU0[0m
+[0;32mI (525) main_task: Calling app_main()[0m
+[0;32mI (525) mpu9250: Initializating MPU9250[0m
+[0;32mI (685) mpu9250: Enabling magnetometer[0m
+[0;32mI (915) mpu9250: Magnetometer enabled[0m
+[0;32mI (915) mpu9250: MPU9250:[0m
+[0;32mI (915) mpu9250: --> i2c bus: 0x00[0m
+[0;32mI (915) mpu9250: --> Device address: 0x68[0m
+[0;32mI (915) mpu9250: --> Device ID: 0x71[0m
+[0;32mI (915) mpu9250: --> initialised: Yes[0m
+[0;32mI (925) mpu9250: --> BYPASS enabled: Yes[0m
+[0;32mI (925) mpu9250: --> SleepEnabled Mode: Off[0m
+[0;32mI (935) mpu9250: --> i2c Master Mode: Disabled[0m
+[0;32mI (935) mpu9250: --> Power Management (0x6B, 0x6C):[0m
+[0;32mI (945) mpu9250:   --> Clock Source: 1 1 (Auto selects the best available clock source)[0m
+[0;32mI (955) mpu9250:   --> Accel enabled (x, y, z): (Yes, Yes, Yes)[0m
+[0;32mI (955) mpu9250:   --> Gyro enabled (x, y, z): (Yes, Yes, Yes)[0m
+[0;32mI (965) mpu9250: Accelerometer:[0m
+[0;32mI (965) mpu9250: --> Full Scale Range (0x1C): ±4g (1)[0m
+[0;32mI (975) mpu9250: --> Scalar: 1/8192.000000[0m
+[0;32mI (985) mpu9250: --> Calibration:[0m
+[0;32mI (985) mpu9250:   --> Offset: [0m
+[0;32mI (985) mpu9250:     --> x: 0.020900[0m
+[0;32mI (995) mpu9250:     --> y: 0.014688[0m
+[0;32mI (995) mpu9250:     --> z: -0.002580[0m
+[0;32mI (1005) mpu9250:   --> Scale: [0m
+[0;32mI (1005) mpu9250:     --> x: (-0.992052, 1.013558)[0m
+[0;32mI (1015) mpu9250:     --> y: (-0.990010, 1.011903)[0m
+[0;32mI (1015) mpu9250:     --> z: (-1.011147, 1.019645)[0m
+[0;32mI (1025) mpu9250: Gyroscope:[0m
+[0;32mI (1025) mpu9250: --> Full Scale Range (0x1B): +250 dps (0)[0m
+[0;32mI (1035) mpu9250: --> Scalar: 1/131.000000[0m
+[0;32mI (1035) mpu9250: --> Bias Offset:[0m
+[0;32mI (1045) mpu9250:   --> x: 0.303956[0m
+[0;32mI (1045) mpu9250:   --> y: -1.049768[0m
+[0;32mI (1045) mpu9250:   --> z: -0.403782[0m
+[0;32mI (1055) ak8963: Magnetometer (Compass):[0m
+[0;32mI (1055) ak8963: --> i2c address: 0x00[0m
+[0;32mI (1065) ak8963: --> initialised: true[0m
+[0;32mI (1065) ak8963: --> Device ID: 0x48[0m
+[0;32mI (1075) ak8963: --> Mode: 0x06 (Continuous measurement mode 2: 100Hz)[0m
+[0;32mI (1075) ak8963: --> ASA Scalars:[0m
+[0;32mI (1085) ak8963:   --> x: 1.191406[0m
+[0;32mI (1085) ak8963:   --> y: 1.199219[0m
+[0;32mI (1085) ak8963:   --> z: 1.152344[0m
+[0;32mI (1095) ak8963: --> Offset:[0m
+[0;32mI (1095) ak8963:   --> x: 25.183594[0m
+[0;32mI (1105) ak8963:   --> y: 57.519531[0m
+[0;32mI (1105) ak8963:   --> z: -62.648438[0m
+[0;32mI (1115) ak8963: --> Scale:[0m
+[0;32mI (1115) ak8963:   --> x: 1.513449[0m
+[0;32mI (1115) ak8963:   --> y: 1.557811[0m
+[0;32mI (1125) ak8963:   --> z: 1.434039[0m
+[0;32mI (1145) BTDM_INIT: BT controller compile version [f021fb7][0m
+[0;32mI (1145) BTDM_INIT: Bluetooth MAC: f0:08:d1:e2:cf:8e[0m
+[0;32mI (1145) phy_init: phy_version 4830,54550f7,Jun 20 2024,14:22:08[0m
+[0;32mI (1445) main: BLE Host Task Started[0m
+[0;32mI (1445) SensorTask: SensorTaskStart[0m
+[0;32mI (1445) BLEModelTask: BLEModel Task start[0m
+[0;32mI (1455) main_task: Returned from app_main()[0m
+[0;32mI (1475) NimBLE: Device Address: [0m
+[0;32mI (1475) NimBLE: f0:08:d1:e2:cf:8e[0m
+[0;32mI (1475) NimBLE: 
+[0m
+[0;32mI (1485) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1485) NimBLE: disc_mode=2[0m
+[0;32mI (1485) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=0 adv_itvl_max=0[0m
+[0;32mI (1495) NimBLE: 
+[0m
+[0;32mI (2715) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (2725) notify: result : 0[0m
+[0;32mI (2725) BLEModelTask: notify[0m
+[0;32mI (3715) BLEModelTask: Model1 output: 0.007812[0m
+[0;32mI (3715) notify: result : 0[0m
+[0;32mI (3715) BLEModelTask: notify[0m
+[0;32mI (4725) BLEModelTask: Model1 output: 0.039062[0m
+[0;32mI (4725) notify: result : 0[0m
+[0;32mI (4725) BLEModelTask: notify[0m
+[0;32mI (5715) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (5725) notify: result : 0[0m
+[0;32mI (5725) BLEModelTask: notify[0m
+[0;32mI (6725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (6725) BLEModelTask: Running Model2...[0m
+[0;32mI (7005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (7005) notify: result : 1[0m
+[0;32mI (7005) BLEModelTask: notify[0m
+[0;32mI (7725) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (7725) notify: result : 0[0m
+[0;32mI (7725) BLEModelTask: notify[0m
+[0;32mI (8715) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (8725) notify: result : 0[0m
+[0;32mI (8725) BLEModelTask: notify[0m
+[0;32mI (9715) BLEModelTask: Model1 output: 0.085938[0m
+[0;32mI (9725) notify: result : 0[0m
+[0;32mI (9725) BLEModelTask: notify[0m
+[0;32mI (10725) BLEModelTask: Model1 output: 0.031250[0m
+[0;32mI (10725) notify: result : 0[0m
+[0;32mI (10725) BLEModelTask: notify[0m
+[0;32mI (11715) BLEModelTask: Model1 output: 0.312500[0m
+[0;32mI (11715) notify: result : 0[0m
+[0;32mI (11715) BLEModelTask: notify[0m
+[0;32mI (12725) BLEModelTask: Model1 output: 0.007812[0m
+[0;32mI (12725) notify: result : 0[0m
+[0;32mI (12725) BLEModelTask: notify[0m
+[0;32mI (13715) BLEModelTask: Model1 output: 0.382812[0m
+[0;32mI (13715) notify: result : 0[0m
+[0;32mI (13715) BLEModelTask: notify[0m
+[0;32mI (14725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (14725) BLEModelTask: Running Model2...[0m
+[0;32mI (15005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (15005) notify: result : 1[0m
+[0;32mI (15005) BLEModelTask: notify[0m
+[0;32mI (15715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (15725) BLEModelTask: Running Model2...[0m
+[0;32mI (16005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (16005) notify: result : 1[0m
+[0;32mI (16005) BLEModelTask: notify[0m
+[0;32mI (16715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (16725) BLEModelTask: Running Model2...[0m
+[0;32mI (17005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (17005) notify: result : 1[0m
+[0;32mI (17005) BLEModelTask: notify[0m
+[0;32mI (17725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (17725) BLEModelTask: Running Model2...[0m
+[0;32mI (18005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (18005) notify: result : 1[0m
+[0;32mI (18005) BLEModelTask: notify[0m
+[0;32mI (18715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (18715) BLEModelTask: Running Model2...[0m
+[0;32mI (19005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (19005) notify: result : 1[0m
+[0;32mI (19005) BLEModelTask: notify[0m
+[0;32mI (19725) BLEModelTask: Model1 output: 0.164062[0m
+[0;32mI (19725) notify: result : 0[0m
+[0;32mI (19725) BLEModelTask: notify[0m
+[0;32mI (20715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (20715) BLEModelTask: Running Model2...[0m
+[0;32mI (21005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (21005) notify: result : 1[0m
+[0;32mI (21005) BLEModelTask: notify[0m
+[0;32mI (21725) BLEModelTask: Model1 output: 0.257812[0m
+[0;32mI (21725) notify: result : 0[0m
+[0;32mI (21725) BLEModelTask: notify[0m
+[0;32mI (22715) BLEModelTask: Model1 output: 0.070312[0m
+[0;32mI (22725) notify: result : 0[0m
+[0;32mI (22725) BLEModelTask: notify[0m
+[0;32mI (23715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (23725) BLEModelTask: Running Model2...[0m
+[0;32mI (24005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (24005) notify: result : 1[0m
+[0;32mI (24005) BLEModelTask: notify[0m
+[0;32mI (24715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (24725) BLEModelTask: Running Model2...[0m
+[0;32mI (25005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (25005) notify: result : 1[0m
+[0;32mI (25005) BLEModelTask: notify[0m
+[0;32mI (25725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (25725) BLEModelTask: Running Model2...[0m
+[0;32mI (26005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (26005) notify: result : 1[0m
+[0;32mI (26005) BLEModelTask: notify[0m
+[0;32mI (26715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (26725) BLEModelTask: Running Model2...[0m
+[0;32mI (27005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (27005) notify: result : 1[0m
+[0;32mI (27005) BLEModelTask: notify[0m
+[0;32mI (27715) BLEModelTask: Model1 output: 0.007812[0m
+[0;32mI (27715) notify: result : 0[0m
+[0;32mI (27715) BLEModelTask: notify[0m
+[0;32mI (28725) BLEModelTask: Model1 output: 0.421875[0m
+[0;32mI (28725) notify: result : 0[0m
+[0;32mI (28725) BLEModelTask: notify[0m
+[0;32mI (29715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (29725) BLEModelTask: Running Model2...[0m
+[0;32mI (30005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (30005) notify: result : 1[0m
+[0;32mI (30005) BLEModelTask: notify[0m
+[0;32mI (30725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (30725) BLEModelTask: Running Model2...[0m
+[0;32mI (31005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (31005) notify: result : 1[0m
+[0;32mI (31005) BLEModelTask: notify[0m
+[0;32mI (31715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (31715) BLEModelTask: Running Model2...[0m
+[0;32mI (32005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (32005) notify: result : 1[0m
+[0;32mI (32005) BLEModelTask: notify[0m
+[0;32mI (32715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (32715) BLEModelTask: Running Model2...[0m
+[0;32mI (33005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (33005) notify: result : 1[0m
+[0;32mI (33005) BLEModelTask: notify[0m
+[0;32mI (33715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (33725) BLEModelTask: Running Model2...[0m
+[0;32mI (34005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (34005) notify: result : 1[0m
+[0;32mI (34005) BLEModelTask: notify[0m
+[0;32mI (34715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (34715) BLEModelTask: Running Model2...[0m
+[0;32mI (35005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (35005) notify: result : 1[0m
+[0;32mI (35005) BLEModelTask: notify[0m
+[0;32mI (35725) BLEModelTask: Model1 output: 0.078125[0m
+[0;32mI (35725) notify: result : 0[0m
+[0;32mI (35725) BLEModelTask: notify[0m
+[0;32mI (36715) BLEModelTask: Model1 output: 0.281250[0m
+[0;32mI (36715) notify: result : 0[0m
+[0;32mI (36725) BLEModelTask: notify[0m
+[0;32mI (37725) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (37725) notify: result : 0[0m
+[0;32mI (37725) BLEModelTask: notify[0m
+[0;32mI (38715) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (38725) notify: result : 0[0m
+[0;32mI (38725) BLEModelTask: notify[0m
+[0;32mI (39715) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (39725) notify: result : 0[0m
+[0;32mI (39725) BLEModelTask: notify[0m
+[0;32mI (40725) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (40725) notify: result : 0[0m
+[0;32mI (40725) BLEModelTask: notify[0m
+[0;32mI (41715) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (41725) notify: result : 0[0m
+[0;32mI (41725) BLEModelTask: notify[0m
+[0;32mI (42715) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (42725) notify: result : 0[0m
+[0;32mI (42725) BLEModelTask: notify[0m
+[0;32mI (43715) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (43715) notify: result : 0[0m
+[0;32mI (43725) BLEModelTask: notify[0m
+[0;32mI (44715) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (44715) notify: result : 0[0m
+[0;32mI (44725) BLEModelTask: notify[0m
+[0;32mI (45725) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (45725) notify: result : 0[0m
+[0;32mI (45725) BLEModelTask: notify[0m
+[0;32mI (46725) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (46725) notify: result : 0[0m
+[0;32mI (46725) BLEModelTask: notify[0m
+[0;32mI (47725) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (47725) notify: result : 0[0m
+[0;32mI (47725) BLEModelTask: notify[0m
+[0;32mI (48725) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (48725) notify: result : 0[0m
+[0;32mI (48725) BLEModelTask: notify[0m
+[0;32mI (49715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (49725) BLEModelTask: Running Model2...[0m
+[0;32mI (50005) BLEModelTask: Model2 output: 0.012 0.145 0.844 [0m
+[0;32mI (50005) notify: result : 3[0m
+[0;32mI (50005) BLEModelTask: notify[0m
+[0;32mI (50725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (50725) BLEModelTask: Running Model2...[0m
+[0;32mI (51005) BLEModelTask: Model2 output: 0.043 0.059 0.898 [0m
+[0;32mI (51005) notify: result : 3[0m
+[0;32mI (51005) BLEModelTask: notify[0m
+[0;32mI (51715) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (51725) notify: result : 0[0m
+[0;32mI (51725) BLEModelTask: notify[0m
+[0;32mI (52725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (52725) BLEModelTask: Running Model2...[0m
+[0;32mI (53005) BLEModelTask: Model2 output: 0.000 0.000 0.996 [0m
+[0;32mI (53005) notify: result : 3[0m
+[0;32mI (53005) BLEModelTask: notify[0m
+[0;32mI (53715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (53725) BLEModelTask: Running Model2...[0m
+[0;32mI (54005) BLEModelTask: Model2 output: 0.000 0.000 0.996 [0m
+[0;32mI (54005) notify: result : 3[0m
+[0;32mI (54005) BLEModelTask: notify[0m
+[0;32mI (54725) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (54725) notify: result : 0[0m
+[0;32mI (54725) BLEModelTask: notify[0m
+[0;32mI (55725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (55725) BLEModelTask: Running Model2...[0m
+[0;32mI (56005) BLEModelTask: Model2 output: 0.000 0.996 0.000 [0m
+[0;32mI (56005) notify: result : 2[0m
+[0;32mI (56005) BLEModelTask: notify[0m
+[0;32mI (56725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (56725) BLEModelTask: Running Model2...[0m
+[0;32mI (57005) BLEModelTask: Model2 output: 0.000 0.996 0.000 [0m
+[0;32mI (57005) notify: result : 2[0m
+[0;32mI (57005) BLEModelTask: notify[0m
+[0;32mI (57715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (57715) BLEModelTask: Running Model2...[0m
+[0;32mI (58005) BLEModelTask: Model2 output: 0.000 0.996 0.004 [0m
+[0;32mI (58005) notify: result : 2[0m
+[0;32mI (58005) BLEModelTask: notify[0m
+[0;32mI (58715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (58715) BLEModelTask: Running Model2...[0m
+[0;32mI (59005) BLEModelTask: Model2 output: 0.031 0.367 0.605 [0m
+[0;32mI (59005) notify: result : 3[0m
+[0;32mI (59005) BLEModelTask: notify[0m
+[0;32mI (59725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (59725) BLEModelTask: Running Model2...[0m
+[0;32mI (60005) BLEModelTask: Model2 output: 0.004 0.984 0.016 [0m
+[0;32mI (60005) notify: result : 2[0m
+[0;32mI (60005) BLEModelTask: notify[0m
+[0;32mI (60725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (60725) BLEModelTask: Running Model2...[0m
+[0;32mI (61005) BLEModelTask: Model2 output: 0.000 0.996 0.000 [0m
+[0;32mI (61005) notify: result : 2[0m
+[0;32mI (61005) BLEModelTask: notify[0m
+[0;32mI (61715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (61715) BLEModelTask: Running Model2...[0m
+[0;32mI (62005) BLEModelTask: Model2 output: 0.000 0.988 0.012 [0m
+[0;32mI (62005) notify: result : 2[0m
+[0;32mI (62005) BLEModelTask: notify[0m
+[0;32mI (62715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (62725) BLEModelTask: Running Model2...[0m
+[0;32mI (63005) BLEModelTask: Model2 output: 0.000 0.996 0.000 [0m
+[0;32mI (63005) notify: result : 2[0m
+[0;32mI (63005) BLEModelTask: notify[0m
+[0;32mI (63715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (63725) BLEModelTask: Running Model2...[0m
+[0;32mI (64005) BLEModelTask: Model2 output: 0.000 0.996 0.000 [0m
+[0;32mI (64005) notify: result : 2[0m
+[0;32mI (64005) BLEModelTask: notify[0m
+[0;32mI (64725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (64725) BLEModelTask: Running Model2...[0m
+[0;32mI (65005) BLEModelTask: Model2 output: 0.000 0.000 0.996 [0m
+[0;32mI (65005) notify: result : 3[0m
+[0;32mI (65005) BLEModelTask: notify[0m
+[0;32mI (65715) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (65725) notify: result : 0[0m
+[0;32mI (65725) BLEModelTask: notify[0m
+[0;32mI (66715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (66715) BLEModelTask: Running Model2...[0m
+[0;32mI (67005) BLEModelTask: Model2 output: 0.000 0.996 0.000 [0m
+[0;32mI (67005) notify: result : 2[0m
+[0;32mI (67005) BLEModelTask: notify[0m
+[0;32mI (67715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (67725) BLEModelTask: Running Model2...[0m
+[0;32mI (68005) BLEModelTask: Model2 output: 0.000 0.996 0.000 [0m
+[0;32mI (68005) notify: result : 2[0m
+[0;32mI (68005) BLEModelTask: notify[0m
+[0;32mI (68725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (68725) BLEModelTask: Running Model2...[0m
+[0;32mI (69005) BLEModelTask: Model2 output: 0.004 0.438 0.562 [0m
+[0;32mI (69005) notify: result : 3[0m
+[0;32mI (69005) BLEModelTask: notify[0m
+[0;32mI (69715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (69715) BLEModelTask: Running Model2...[0m
+[0;32mI (70005) BLEModelTask: Model2 output: 0.000 0.992 0.004 [0m
+[0;32mI (70005) notify: result : 2[0m
+[0;32mI (70005) BLEModelTask: notify[0m
+[0;32mI (70725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (70725) BLEModelTask: Running Model2...[0m
+[0;32mI (71005) BLEModelTask: Model2 output: 0.000 0.000 0.996 [0m
+[0;32mI (71005) notify: result : 3[0m
+[0;32mI (71005) BLEModelTask: notify[0m
+[0;32mI (71715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (71715) BLEModelTask: Running Model2...[0m
+[0;32mI (72005) BLEModelTask: Model2 output: 0.000 0.000 0.996 [0m
+[0;32mI (72005) notify: result : 3[0m
+[0;32mI (72005) BLEModelTask: notify[0m
+[0;32mI (72715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (72725) BLEModelTask: Running Model2...[0m
+[0;32mI (73005) BLEModelTask: Model2 output: 0.000 0.000 0.996 [0m
+[0;32mI (73005) notify: result : 3[0m
+[0;32mI (73005) BLEModelTask: notify[0m
+[0;32mI (73725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (73725) BLEModelTask: Running Model2...[0m
+[0;32mI (74005) BLEModelTask: Model2 output: 0.000 0.000 0.996 [0m
+[0;32mI (74005) notify: result : 3[0m
+[0;32mI (74005) BLEModelTask: notify[0m
+[0;32mI (74715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (74715) BLEModelTask: Running Model2...[0m
+[0;32mI (75005) BLEModelTask: Model2 output: 0.000 0.000 0.996 [0m
+[0;32mI (75005) notify: result : 3[0m
+[0;32mI (75005) BLEModelTask: notify[0m
+[0;32mI (75715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (75715) BLEModelTask: Running Model2...[0m
+[0;32mI (76005) BLEModelTask: Model2 output: 0.000 0.000 0.996 [0m
+[0;32mI (76005) notify: result : 3[0m
+[0;32mI (76005) BLEModelTask: notify[0m
+[0;32mI (76715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (76725) BLEModelTask: Running Model2...[0m
+[0;32mI (77005) BLEModelTask: Model2 output: 0.000 0.000 0.996 [0m
+[0;32mI (77005) notify: result : 3[0m
+[0;32mI (77005) BLEModelTask: notify[0m
+[0;32mI (77715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (77715) BLEModelTask: Running Model2...[0m
+[0;32mI (78005) BLEModelTask: Model2 output: 0.000 0.000 0.996 [0m
+[0;32mI (78005) notify: result : 3[0m
+[0;32mI (78005) BLEModelTask: notify[0m
+[0;32mI (78715) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (78725) notify: result : 0[0m
+[0;32mI (78725) BLEModelTask: notify[0m
+[0;32mI (79715) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (79715) notify: result : 0[0m
+[0;32mI (79715) BLEModelTask: notify[0m
+[0;32mI (80725) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (80725) notify: result : 0[0m
+[0;32mI (80725) BLEModelTask: notify[0m
+[0;32mI (81715) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (81715) notify: result : 0[0m
+[0;32mI (81715) BLEModelTask: notify[0m
+[0;32mI (82715) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (82725) notify: result : 0[0m
+[0;32mI (82725) BLEModelTask: notify[0m
+[0;32mI (83715) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (83725) notify: result : 0[0m
+[0;32mI (83725) BLEModelTask: notify[0m
+[0;32mI (84715) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (84715) notify: result : 0[0m
+[0;32mI (84715) BLEModelTask: notify[0m
+[0;32mI (85725) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (85725) notify: result : 0[0m
+[0;32mI (85725) BLEModelTask: notify[0m
+[0;32mI (86715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (86715) BLEModelTask: Running Model2...[0m
+[0;32mI (87005) BLEModelTask: Model2 output: 0.000 0.996 0.000 [0m
+[0;32mI (87005) notify: result : 2[0m
+[0;32mI (87005) BLEModelTask: notify[0m
+[0;32mI (87725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (87725) BLEModelTask: Running Model2...[0m
+[0;32mI (88005) BLEModelTask: Model2 output: 0.000 0.996 0.000 [0m
+[0;32mI (88005) notify: result : 2[0m
+[0;32mI (88005) BLEModelTask: notify[0m
+[0;32mI (88725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (88725) BLEModelTask: Running Model2...[0m
+[0;32mI (89005) BLEModelTask: Model2 output: 0.000 0.996 0.000 [0m
+[0;32mI (89005) notify: result : 2[0m
+[0;32mI (89005) BLEModelTask: notify[0m
+[0;32mI (89715) BLEModelTask: Model1 output: 0.312500[0m
+[0;32mI (89725) notify: result : 0[0m
+[0;32mI (89725) BLEModelTask: notify[0m
+[0;32mI (90715) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (90725) notify: result : 0[0m
+[0;32mI (90725) BLEModelTask: notify[0m
+[0;32mI (91715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (91725) BLEModelTask: Running Model2...[0m
+[0;32mI (92005) BLEModelTask: Model2 output: 0.000 0.996 0.000 [0m
+[0;32mI (92005) notify: result : 2[0m
+[0;32mI (92005) BLEModelTask: notify[0m
+[0;32mI (92715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (92725) BLEModelTask: Running Model2...[0m
+[0;32mI (93005) BLEModelTask: Model2 output: 0.000 0.996 0.000 [0m
+[0;32mI (93005) notify: result : 2[0m
+[0;32mI (93005) BLEModelTask: notify[0m
+[0;32mI (93715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (93715) BLEModelTask: Running Model2...[0m
+[0;32mI (94005) BLEModelTask: Model2 output: 0.000 0.996 0.000 [0m
+[0;32mI (94005) notify: result : 2[0m
+[0;32mI (94005) BLEModelTask: notify[0m
+[0;32mI (94725) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (94725) notify: result : 0[0m
+[0;32mI (94725) BLEModelTask: notify[0m
+[0;32mI (95715) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (95715) notify: result : 0[0m
+[0;32mI (95725) BLEModelTask: notify[0m
+[0;32mI (96725) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (96725) notify: result : 0[0m
+[0;32mI (96725) BLEModelTask: notify[0m
+[0;32mI (97715) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (97725) notify: result : 0[0m
+[0;32mI (97725) BLEModelTask: notify[0m
+[0;32mI (98715) BLEModelTask: Model1 output: 0.132812[0m
+[0;32mI (98725) notify: result : 0[0m
+[0;32mI (98725) BLEModelTask: notify[0m
+[0;32mI (99725) BLEModelTask: Model1 output: 0.164062[0m
+[0;32mI (99725) notify: result : 0[0m
+[0;32mI (99725) BLEModelTask: notify[0m
+[0;32mI (100725) BLEModelTask: Model1 output: 0.554688[0m
+[0;32mI (100725) BLEModelTask: Running Model2...[0m
+[0;32mI (101005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (101005) notify: result : 1[0m
+[0;32mI (101005) BLEModelTask: notify[0m
+[0;32mI (101725) BLEModelTask: Model1 output: 0.343750[0m
+[0;32mI (101725) notify: result : 0[0m
+[0;32mI (101725) BLEModelTask: notify[0m
+[0;32mI (102725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (102725) BLEModelTask: Running Model2...[0m
+[0;32mI (103005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (103005) notify: result : 1[0m
+[0;32mI (103005) BLEModelTask: notify[0m
+[0;32mI (103715) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (103715) notify: result : 0[0m
+[0;32mI (103715) BLEModelTask: notify[0m
+[0;32mI (104725) BLEModelTask: Model1 output: 0.820312[0m
+[0;32mI (104725) BLEModelTask: Running Model2...[0m
+[0;32mI (105005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (105005) notify: result : 1[0m
+[0;32mI (105005) BLEModelTask: notify[0m
+[0;32mI (105715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (105715) BLEModelTask: Running Model2...[0m
+[0;32mI (106005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (106005) notify: result : 1[0m
+[0;32mI (106005) BLEModelTask: notify[0m
+[0;32mI (106725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (106725) BLEModelTask: Running Model2...[0m
+[0;32mI (107005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (107005) notify: result : 1[0m
+[0;32mI (107005) BLEModelTask: notify[0m
+[0;32mI (107715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (107725) BLEModelTask: Running Model2...[0m
+[0;32mI (108005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (108005) notify: result : 1[0m
+[0;32mI (108005) BLEModelTask: notify[0m
+[0;32mI (108715) BLEModelTask: Model1 output: 0.046875[0m
+[0;32mI (108715) notify: result : 0[0m
+[0;32mI (108715) BLEModelTask: notify[0m
+[0;32mI (109715) BLEModelTask: Model1 output: 0.007812[0m
+[0;32mI (109725) notify: result : 0[0m
+[0;32mI (109725) BLEModelTask: notify[0m
+[0;32mI (110725) BLEModelTask: Model1 output: 0.007812[0m
+[0;32mI (110725) notify: result : 0[0m
+[0;32mI (110725) BLEModelTask: notify[0m
+[0;32mI (111715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (111715) BLEModelTask: Running Model2...[0m
+[0;32mI (112005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (112005) notify: result : 1[0m
+[0;32mI (112005) BLEModelTask: notify[0m
+[0;32mI (112715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (112715) BLEModelTask: Running Model2...[0m
+[0;32mI (113005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (113005) notify: result : 1[0m
+[0;32mI (113005) BLEModelTask: notify[0m
+[0;32mI (113725) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (113725) notify: result : 0[0m
+[0;32mI (113725) BLEModelTask: notify[0m
+[0;32mI (114725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (114725) BLEModelTask: Running Model2...[0m
+[0;32mI (115005) BLEModelTask: Model2 output: 0.617 0.008 0.375 [0m
+[0;32mI (115005) notify: result : 1[0m
+[0;32mI (115005) BLEModelTask: notify[0m
+[0;32mI (115715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (115715) BLEModelTask: Running Model2...[0m
+[0;32mI (116005) BLEModelTask: Model2 output: 0.000 0.996 0.000 [0m
+[0;32mI (116005) notify: result : 2[0m
+[0;32mI (116005) BLEModelTask: notify[0m
+[0;32mI (116715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (116715) BLEModelTask: Running Model2...[0m
+[0;32mI (117005) BLEModelTask: Model2 output: 0.000 0.996 0.000 [0m
+[0;32mI (117005) notify: result : 2[0m
+[0;32mI (117005) BLEModelTask: notify[0m
+[0;32mI (117725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (117725) BLEModelTask: Running Model2...[0m
+[0;32mI (118005) BLEModelTask: Model2 output: 0.000 0.996 0.000 [0m
+[0;32mI (118005) notify: result : 2[0m
+[0;32mI (118005) BLEModelTask: notify[0m
+[0;32mI (118715) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (118725) notify: result : 0[0m
+[0;32mI (118725) BLEModelTask: notify[0m
+[0;32mI (119715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (119725) BLEModelTask: Running Model2...[0m
+[0;32mI (120005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (120005) notify: result : 1[0m
+[0;32mI (120005) BLEModelTask: notify[0m
+[0;32mI (120715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (120715) BLEModelTask: Running Model2...[0m
+[0;32mI (121005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (121005) notify: result : 1[0m
+[0;32mI (121005) BLEModelTask: notify[0m
+[0;32mI (121715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (121725) BLEModelTask: Running Model2...[0m
+[0;32mI (122005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (122005) notify: result : 1[0m
+[0;32mI (122005) BLEModelTask: notify[0m
+[0;32mI (122725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (122725) BLEModelTask: Running Model2...[0m
+[0;32mI (123005) BLEModelTask: Model2 output: 0.000 0.996 0.000 [0m
+[0;32mI (123005) notify: result : 2[0m
+[0;32mI (123005) BLEModelTask: notify[0m
+[0;32mI (123725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (123725) BLEModelTask: Running Model2...[0m
+[0;32mI (124005) BLEModelTask: Model2 output: 0.000 0.996 0.000 [0m
+[0;32mI (124005) notify: result : 2[0m
+[0;32mI (124005) BLEModelTask: notify[0m
+[0;32mI (124715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (124715) BLEModelTask: Running Model2...[0m
+[0;32mI (125005) BLEModelTask: Model2 output: 0.000 0.996 0.000 [0m
+[0;32mI (125005) notify: result : 2[0m
+[0;32mI (125005) BLEModelTask: notify[0m
+[0;32mI (125725) BLEModelTask: Model1 output: 0.007812[0m
+[0;32mI (125725) notify: result : 0[0m
+[0;32mI (125725) BLEModelTask: notify[0m
+[0;32mI (126715) BLEModelTask: Model1 output: 0.000000[0m
+[0;32mI (126725) notify: result : 0[0m
+[0;32mI (126725) BLEModelTask: notify[0m
+[0;32mI (127715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (127725) BLEModelTask: Running Model2...[0m
+[0;32mI (128005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (128005) notify: result : 1[0m
+[0;32mI (128005) BLEModelTask: notify[0m
+[0;32mI (128715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (128715) BLEModelTask: Running Model2...[0m
+[0;32mI (129005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (129005) notify: result : 1[0m
+[0;32mI (129005) BLEModelTask: notify[0m
+[0;32mI (129725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (129725) BLEModelTask: Running Model2...[0m
+[0;32mI (130005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (130005) notify: result : 1[0m
+[0;32mI (130005) BLEModelTask: notify[0m
+[0;32mI (130715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (130725) BLEModelTask: Running Model2...[0m
+[0;32mI (131005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (131005) notify: result : 1[0m
+[0;32mI (131005) BLEModelTask: notify[0m
+[0;32mI (131715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (131715) BLEModelTask: Running Model2...[0m
+[0;32mI (132005) BLEModelTask: Model2 output: 0.996 0.000 0.000 [0m
+[0;32mI (132005) notify: result : 1[0m
+[0;32mI (132005) BLEModelTask: notify[0m
+[0;32mI (132715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (132715) BLEModelTask: Running Model2...[0m
+[0;32mI (133005) BLEModelTask: Model2 output: 0.148 0.004 0.852 [0m
+[0;32mI (133005) notify: result : 3[0m
+[0;32mI (133005) BLEModelTask: notify[0m
+[0;32mI (133725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (133725) BLEModelTask: Running Model2...[0m
+[0;32mI (134005) BLEModelTask: Model2 output: 0.000 0.000 0.996 [0m
+[0;32mI (134005) notify: result : 3[0m
+[0;32mI (134005) BLEModelTask: notify[0m
+[0;32mI (134715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (134725) BLEModelTask: Running Model2...[0m
+[0;32mI (135005) BLEModelTask: Model2 output: 0.000 0.000 0.996 [0m
+[0;32mI (135005) notify: result : 3[0m
+[0;32mI (135005) BLEModelTask: notify[0m
+[0;32mI (135715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (135725) BLEModelTask: Running Model2...[0m
+[0;32mI (136005) BLEModelTask: Model2 output: 0.000 0.000 0.996 [0m
+[0;32mI (136005) notify: result : 3[0m
+[0;32mI (136005) BLEModelTask: notify[0m
+[0;32mI (136715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (136715) BLEModelTask: Running Model2...[0m
+[0;32mI (137005) BLEModelTask: Model2 output: 0.000 0.000 0.996 [0m
+[0;32mI (137005) notify: result : 3[0m
+[0;32mI (137005) BLEModelTask: notify[0m
+[0;32mI (137715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (137725) BLEModelTask: Running Model2...[0m
+[0;32mI (138005) BLEModelTask: Model2 output: 0.000 0.000 0.996 [0m
+[0;32mI (138005) notify: result : 3[0m
+[0;32mI (138005) BLEModelTask: notify[0m
+[0;32mI (138715) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (138715) BLEModelTask: Running Model2...[0m
+[0;32mI (139005) BLEModelTask: Model2 output: 0.000 0.000 0.996 [0m
+[0;32mI (139005) notify: result : 3[0m
+[0;32mI (139005) BLEModelTask: notify[0m
+[0;32mI (139725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (139725) BLEModelTask: Running Model2...[0m
+[0;32mI (140005) BLEModelTask: Model2 output: 0.000 0.000 0.996 [0m
+[0;32mI (140005) notify: result : 3[0m
+[0;32mI (140005) BLEModelTask: notify[0m
+[0;32mI (140725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (140725) BLEModelTask: Running Model2...[0m
+[0;32mI (141005) BLEModelTask: Model2 output: 0.000 0.000 0.996 [0m
+[0;32mI (141005) notify: result : 3[0m
+[0;32mI (141005) BLEModelTask: notify[0m
+[0;32mI (141725) BLEModelTask: Model1 output: 1.000000[0m
+[0;32mI (141725) BLEModelTask: Running Model2...[0m
+[0;32mI (142005) BLEModelTask: Model2 output: 0.000 0.000 0.996 [0m
+[0;32mI (142005) notify: result : 3[0m
+[0;32mI (142005) BLEModelTask: notify[0m
