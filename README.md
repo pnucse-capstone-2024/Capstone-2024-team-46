@@ -1,4 +1,10 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/NJK_cPkH)
+
+## 1. 프로젝트 소개
+
+
+
+
 # Template for Capstone
 이 레파지토리는 학생들이 캡스톤 프로젝트 결과물을 위한 레파지토리 생성시에 참고할 내용들을 담고 있습니다.
 1. 레파지토리 생성
@@ -204,3 +210,52 @@ __double underscores__ <br />
 - `Youtube Thumbnail URL`: http://img.youtube.com/vi/{동영상 ID}/0.jpg 
 - 예를 들어, https://www.youtube.com/watch?v=zh_gQ_lmLqE 라고 하면 썸네일의 주소는 http://img.youtube.com/vi/zh_gQ_lmLqE/0.jpg 이다.
 
+
+# Anomaly Detection Prometheus - 설치 가이드
+
+## 사전 준비
+
+준비해야할 항목:
+- Visual Studio Code (VSCode)
+- ESP32-DevKitM-1 개발 보드
+- ESP32-DevKitM-1을 PC와 연결할 USB 케이블
+
+
+## 1단계: Visual Studio Code 설치
+
+1. [Visual Studio Code 다운로드 페이지](https://code.visualstudio.com/)에 방문한다.
+2. 운영 체제에 맞는 설치 파일을 다운로드한다. (Windows, macOS, Linux).
+3. 다운로드한 설치 파일을 실행하고 화면의 지시에 따라 설치를 완료한다.
+
+## 2단계: Visual Studio Code용 ESP-IDF 확장 프로그램 설치
+
+1. Visual Studio Code를 연다.
+2. 왼쪽 사이드바에서 네모난 아이콘을 클릭하거나 `Ctrl+Shift+X`를 눌러 확장 프로그램 보기로 이동한다.
+3. "ESP-IDF"를 검색한 다음 `설치`를 클릭한다.
+
+## 3단계: ESP32-DevKitM-1 모듈 연결
+
+Anomaly Detection Prometheus 프로젝트는 ESP32-DevKitM-1 모듈 환경에서 개발되었으므로, 모듈을 USB 케이블로 PC와 연결한다.
+
+만약 USB 장치에서 ESP32 모듈이 인식되지 않는다면, 아래 링크에서 드라이버를 다운로드하여 설치한다.:
+[Silicon Labs USB to UART 브리지 드라이버](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads)
+
+## 4단계: ESP-IDF 프로젝트 빌드 및 플래시
+
+1. ESP32 모듈이 정상적으로 인식되었다면, Visual Studio Code 내의 ESP-IDF CMD 터미널을 실행한다.
+2. 프로젝트 폴더인 `Anomaly_Detection_Prometheus` 폴더로 이동한다.:
+   ```bash
+   cd Anomaly_Detection_Prometheus
+    ```
+3. 다음 명령어를 입력하여 프로젝트를 빌드하고, 플래시하고, 모니터링한다.:
+    ```bash
+    idf.py build flash monitor
+    ```
+4. 정상적으로 빌드가 완료되고 출력 로그가 정상적으로 보이면, 다음 단계로 진행한다.
+
+## 5단계 : 웹 애플리케이션에서 BLE 연결
+1. Anomaly Detection Notification.html 파일을 실행한다.
+2. 웹 페이지에서 "Scan for BLE Devices" 버튼을 클릭하여 BLE 기기를 검색한다.
+3. "ESP32-Prometheus" 기기에 연결하여 데이터 전송을 시작한다.
+
+\
