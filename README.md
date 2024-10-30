@@ -150,7 +150,7 @@ Anomaly Detection Prometheus 프로젝트는 ESP32-DevKitM-1 모듈 환경에서
 2. 웹 페이지에서 "Scan for BLE Devices" 버튼을 클릭하여 BLE 기기를 검색한다.
 3. "ESP32-Prometheus" 기기에 연결하여 데이터 전송을 시작한다.
 
-## 4. 소개 및 시연 영상
+## 5. 소개 및 시연 영상
 <div align = "center">
     <a href="https://youtu.be/_r0eA_bjf0g?si=xF_1aaH4oWfBnD5C">
         <img src="https://img.youtube.com/vi/_r0eA_bjf0g/0.jpg" alt="프로메테우스 팀 소개영상" width="500" />
