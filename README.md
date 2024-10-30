@@ -170,6 +170,5 @@ Anomaly Detection Prometheus 프로젝트는 ESP32-DevKitM-1 모듈 환경에서
 - ISA, "World's Largest Manufacturers Lose Almost $1 Trillion Annually to Machine Failures," Automation.com, June 2021, https://www.automation.com/en-us/articles/june-2021/world-largest-manufacturers-lose-almost-1-trillion.
 - SmartManuAD, "Smart Manufacturing AD: Open Datasets," GitHub repository, accessed October 16, 2024, https://github.com/SmartManuAD/Smart-Manufacturing-AD/tree/main.
 - IEEE, "A Novel Approach for Anomaly Detection in Time Series Data Using a Hybrid Model," IEEE Access 10 (2022): 1055-1065, https://doi.org/10.1109/ACCESS.2022.9672830.
-
-[6] Jun Shu, Zongben Xu, and Deyu Meng, "Small Sample Learning in Big Data Era," School of Mathematics and Statistics, Xi’an Jiaotong University, China, accessed October 16, 2024.
+- Jun Shu, Zongben Xu, and Deyu Meng, "Small Sample Learning in Big Data Era," School of Mathematics and Statistics, Xi’an Jiaotong University, China, accessed October 16, 2024.
 
