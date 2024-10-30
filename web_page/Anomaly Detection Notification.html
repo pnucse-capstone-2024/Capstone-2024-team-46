@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anomaly Detection Notification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        #device-name {
+            font-size: 18px;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #e8e8e8;
+        }
+
+        .label-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .label-box {
+            display: inline-block;
+            width: 200px;
+            height: 100px;
+            margin: 10px;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 24px;
+            border: 1px solid #000;
+        }
+
+        .highlight {
+            background-color: red;
+            color: white;
+            font-weight: bold;
+        }
+
+        .normal {
+            background-color: blue;
+            color: white;
+            font-weight: bold;
+        }
+
+        .inactive {
+            background-color: white;
+            color: black;
+        }
+
+        #anomaly-types {
+            display: none;
+            justify-content: center;
+            margin: 10px 0;
+        }
+
+        .anomaly-box {
+            font-size: 24px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #000;
+            padding: 10px;
+            width: 150px;
+        }
+
+        .anomaly-highlight {
+            color: red;
+            font-weight: bold;
+        }
+
+        .normal-text {
+            color: black;
+            font-weight: normal;
+        }
+
+        #record {
+            margin-top: 20px;
+            text-align: left;
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .record-row {
+            margin: 10px 0;
+        }
+
+        /* 모달 창 스타일 (우측 상단) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 20px;
+            right: 20px;
+            background-color: #ff4444;
+            color: white;
+            padding: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            width: 300px;
+        }
+
+        .modal.active {
+            display: block;
+        }
+
+        .modal-header {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .modal-body {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .modal-footer {
+            text-align: right;
+        }
+
+        .modal-footer button {
+            background-color: #fff;
+            color: #ff4444;
+            padding: 10px 15px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .modal-footer button:hover {
+            background-color: #f1f1f1;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <h1>Anomaly Detection Notification</h1>
+    <div class="container">
+        <button class="btn" onclick="connectBLE()">Scan for BLE Devices</button>
+        <p id="device-name">No device selected</p>
+
+        <div class="label-container">
+            <div id="normal-label" class="label-box inactive">정상</div>
+            <div id="anomaly-label" class="label-box inactive">이상</div>
+        </div>
+
+        <button class="btn" onclick="toggleAnomalyBoxes()">Show/Hide Anomaly Details</button>
+
+        <div id="anomaly-types">
+            <div id="low-voltage" class="anomaly-box normal-text">저전압</div>
+            <div id="foreign-object" class="anomaly-box normal-text">이물질 접촉</div>
+            <div id="fan-imbalance" class="anomaly-box normal-text">팬 불균형</div>
+        </div>
+
+        <div id="record" class="box">
+            <h2>Records</h2>
+            <div id="record-list">
+                <!-- 기록이 여기에 추가됩니다 -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 BLE Anomaly Detection
+    </footer>
+
+    <!-- 우측 상단에 위치한 모달 창 -->
+    <div id="modal" class="modal">
+        <div class="modal-header">경고</div>
+        <div class="modal-body" id="modal-message"></div>
+        <div class="modal-footer">
+            <button onclick="closeModal()">확인</button>
+        </div>
+    </div>
+
+    <script>
+        let characteristic;
+        let lastAnomalyType = null;
+        let anomalyStartTime = null;
+        let anomalyTimer = null;
+
+        async function connectBLE() {
+            try {
+                const device = await navigator.bluetooth.requestDevice({
+                    filters: [{ name: 'ESP32-Prometheus' }],
+                    optionalServices: ['59462f12-9543-9999-12c8-58b459a2712d']
+                });
+
+                document.getElementById('device-name').innerText = `Selected device: ${device.name}`;
+
+                const server = await device.gatt.connect();
+                const service = await server.getPrimaryService('59462f12-9543-9999-12c8-58b459a2712d');
+                const characteristics = await service.getCharacteristics();
+                characteristic = characteristics[0];
+
+                await characteristic.startNotifications();
+                characteristic.addEventListener('characteristicvaluechanged', handleCharacteristicValueChanged);
+
+            } catch (error) {
+                console.log('Error:', error);
+                document.getElementById('device-name').innerText = 'Error connecting to BLE device.';
+            }
+        }
+
+        function toggleAnomalyBoxes() {
+            const anomalySection = document.getElementById('anomaly-types');
+            if (anomalySection.style.display === 'none') {
+                anomalySection.style.display = 'flex';
+            } else {
+                anomalySection.style.display = 'none';
+            }
+        }
+
+        function handleCharacteristicValueChanged(event) {
+            const value = event.target.value;
+            const decodedValue = new TextDecoder().decode(value);
+            const anomalyType = parseData(decodedValue);
+
+            if (anomalyType === 0 && lastAnomalyType !== 0 && lastAnomalyType !== null) {
+                addRecord(0); // 정상 상태 기록 추가
+            }
+            if (anomalyType !== null) {
+                updateLabels(anomalyType);
+                updateAnomalyBoxes(anomalyType);
+                if (anomalyType !== 0 && (lastAnomalyType === null || lastAnomalyType !== anomalyType)) {
+                    addRecord(anomalyType);
+                    showModal(anomalyType);
+                    lastAnomalyType = anomalyType;
+                    anomalyStartTime = new Date(); // 이상 시작 시간 기록
+                    resetAnomalyTimer(); // 10초 타이머 리셋
+                } else if (anomalyType === 0) {
+                    lastAnomalyType = null;
+                    anomalyStartTime = null; // 정상 상태로 돌아가면 시간 초기화
+                    clearTimeout(anomalyTimer); // 타이머 취소
+                    closeModal(); // 정상으로 돌아가면 모달 닫기
+                }
+            }
+        }
+
+        function resetAnomalyTimer() {
+            clearTimeout(anomalyTimer); // 기존 타이머 취소
+            anomalyTimer = setTimeout(() => {
+                showModal(lastAnomalyType, true); // 10초 후에도 이상 상태일 경우 경고
+            }, 10000); // 10초 후 경고 표시
+        }
+
+        function parseData(data) {
+            return parseInt(data.trim());
+        }
+
+        function updateLabels(anomalyType) {
+            const normalLabel = document.getElementById('normal-label');
+            const anomalyLabel = document.getElementById('anomaly-label');
+
+            if (anomalyType === 0) {
+                normalLabel.classList.remove('inactive');
+                normalLabel.classList.add('normal');
+                anomalyLabel.classList.remove('highlight');
+                anomalyLabel.classList.add('inactive');
+            } else {
+                normalLabel.classList.remove('normal');
+                normalLabel.classList.add('inactive');
+                anomalyLabel.classList.remove('inactive');
+                anomalyLabel.classList.add('highlight');
+            }
+        }
+
+        function updateAnomalyBoxes(anomalyType) {
+            const lowVoltageElement = document.getElementById('low-voltage');
+            const foreignObjectElement = document.getElementById('foreign-object');
+            const fanImbalanceElement = document.getElementById('fan-imbalance');
+
+            // Reset all anomaly boxes
+            lowVoltageElement.classList.remove('anomaly-highlight');
+            foreignObjectElement.classList.remove('anomaly-highlight');
+            fanImbalanceElement.classList.remove('anomaly-highlight');
+
+            lowVoltageElement.classList.add('normal-text');
+            foreignObjectElement.classList.add('normal-text');
+            fanImbalanceElement.classList.add('normal-text');
+
+            // Apply red bold text to the corresponding anomaly box
+            if (anomalyType === 1) {
+                lowVoltageElement.classList.add('anomaly-highlight');
+                lowVoltageElement.classList.remove('normal-text');
+            } else if (anomalyType === 2) {
+                foreignObjectElement.classList.add('anomaly-highlight');
+                foreignObjectElement.classList.remove('normal-text');
+            } else if (anomalyType === 3) {
+                fanImbalanceElement.classList.add('anomaly-highlight');
+                fanImbalanceElement.classList.remove('normal-text');
+            }
+        }
+
+        function addRecord(anomalyType) {
+            const recordList = document.getElementById('record-list');
+            const currentTime = new Date().toLocaleTimeString();
+            let anomalyDetail = '';
+        
+            // 정상 상태일 때의 기록 내용
+            if (anomalyType === 0) {
+                anomalyDetail = '정상';
+            } else {
+                anomalyDetail = anomalyType === 1 ? '저전압' : anomalyType === 2 ? '이물질 접촉' : anomalyType === 3 ? '팬 불균형' : '';
+            }
+        
+            const record = `<div class="record-row">시간: ${currentTime}, 세부사항: ${anomalyDetail}</div>`;
+            recordList.innerHTML = record + recordList.innerHTML; // 최신 기록을 위에 추가
+        }
+
+        function showModal(anomalyType, isContinued = false) {
+            const message = isContinued ? `이상 상태가 10초 이상 지속되고 있습니다.` : `이상 상태가 감지되었습니다.`;
+            
+            // 모달 메시지 설정
+            document.getElementById('modal-message').innerText = message;
+            document.getElementById('modal').classList.add('active'); // 모달 띄우기
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active'); // 모달 닫기
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+dependencies:
+  espressif/esp-nn:
+    component_hash: f6f2851ce82137a66e4265071c9b852bbe0130b882a18dea9f03faea7bf1295a
+    source:
+      type: service
+    version: 1.1.0
+  espressif/esp-tflite-micro:
+    component_hash: 28c9fd43c9896bd8676c0b5bfa73598e58f421d04e1a46be788d27a71c9b4cec
+    source:
+      type: service
+    version: 1.3.1
+  idf:
+    component_hash: null
+    source:
+      type: idf
+    version: 5.3.0
+  nimble_peripheral_utils:
+    component_hash: null
+    source:
+      path: C:\Espressif\frameworks\esp-idf-v5.3\examples\bluetooth\nimble\common\nimble_peripheral_utils
+      type: local
+    version: '*'
+manifest_hash: eee3b5fa2881847ce2ed8cf70ab873e720a535fd6cb20fac1d463ee761d8b62d
+target: esp32
+version: 1.0.0
